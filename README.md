@@ -2,12 +2,12 @@
 
 <p align="center">
   <b>产品经理的 AI 时代工具包</b><br>
-  深度分析 + 质量控制 + 项目管理 · 三位一体
+  深度分析 + 质量控制 + 项目管理 + 认知校准
 </p>
 
 <p align="center">
   <a href="#-快速开始"><b>快速开始</b></a> •
-  <a href="#-三个-skill"><b>三个 Skill</b></a> •
+  <a href="#-四个-skill"><b>四个 Skill</b></a> •
   <a href="#-适用场景"><b>适用场景</b></a> •
   <a href="#-为什么值得收藏"><b>为什么值得收藏</b></a> •
   <a href="#-安装"><b>安装</b></a>
@@ -24,12 +24,13 @@ AI 生成内容越来越普遍，但产品经理面临三个核心痛点：
 | **分析没有深度** | AI 输出的报告堆数据、没有判断、像模板填空 | `deep-analysis-report` 提供 30 项质量门禁 + 四层结构方法论 |
 | **质量不可衡量** | 你觉得不好，但说不清哪里不好，架构师不知道改什么 | `ai-quality-checker` 提供 26 项门禁 + 评分标准 + 团队校准机制 |
 | **AI agent 管理没流程** | 需求、开发、验收、迭代一团乱，PM 不知道自己的角色 | `pm-practice-management` 提供全流程管理工具 + 验收模板 |
+| **输入未经校准** | AI 很快开始产出，但目标、证据和边界还没说清 | `cognitive-lead` 先核对材料，再给带置信度和反例的判断 |
 
-**一句话：让你和团队用同一套标准，交付高质量 AI 输出。**
+**一句话：把输入、分析、管理和质量检查连成一套可复用的 PM 工作工具。**
 
 ---
 
-## 📦 三个 Skill
+## 📦 四个 Skill
 
 ### 1. deep-analysis-report · 深度分析报告
 
@@ -84,27 +85,36 @@ AI 生成内容越来越普遍，但产品经理面临三个核心痛点：
 
 ---
 
-## 🔗 三个 Skill 的关系
+### 4. cognitive-lead · 认知校准
+
+> 在开始产出前，先把目标、证据、边界和反例说清楚。
+
+适用于需要做决定、设计方案或准备对外表达的任务。它先核对材料，再给出带置信度、依据和反例的判断，并把输入改写成可观察的验收标准。
+
+**核心能力：**
+- 把事实、推断和未知分开，并为材料结论标出来源
+- 用置信度与可观察的反例校准判断
+- 通过开放式提问补齐真实例子、代价、边界和验收条件
+- 可选的决策日志工具，支持到期复查与 Brier 分计算
+
+→ [查看详情](skills/cognitive-lead/SKILL.md)
+
+---
+
+## 🔗 四个 Skill 的关系
 
 ```text
-                ┌──────────────────────────────┐
-                │  pm-practice-management       │
-                │  (流程管理：定义怎么开发)       │
-                └──────────┬───────────────────┘
-                           │ 使用
-                           ▼
-┌─────────────────────────────────────────────────┐
-│  deep-analysis-report     ai-quality-checker     │
-│  (内容生产：生成分析报告)   (质量把关：检查输出)    │
-│          │                       ▲              │
-│          └────── 输出 → 检查 ─────┘              │
-└─────────────────────────────────────────────────┘
+需求和证据
+    │
+    ▼
+cognitive-lead ── 明确目标与验收标准
+    │
+    ├── pm-practice-management ── 管理交付流程
+    ├── deep-analysis-report ──── 生成分析内容
+    └── ai-quality-checker ────── 检查输出质量
 ```
 
-三个 skill 可独立使用，但组合使用时效果最大化：
-1. `pm-practice-management` 定义开发流程和验收标准
-2. `deep-analysis-report` 生成深度分析内容
-3. `ai-quality-checker` 验证输出是否符合标准
+四个 skill 可独立使用，也可按任务组合：先用 `cognitive-lead` 明确目标与证据，再由 `pm-practice-management` 管理交付过程，使用 `deep-analysis-report` 产出分析，最后交给 `ai-quality-checker` 检查质量。
 
 ---
 
@@ -126,6 +136,9 @@ cp -r skills/ai-quality-checker ~/.claude/skills/ai-quality-checker
 
 # 安装实战管理方法论
 cp -r skills/pm-practice-management ~/.claude/skills/pm-practice-management
+
+# 安装认知校准
+cp -r skills/cognitive-lead ~/.claude/skills/cognitive-lead
 ```
 
 ### 使用
@@ -141,6 +154,9 @@ cp -r skills/pm-practice-management ~/.claude/skills/pm-practice-management
 
 # 查看管理方法论
 /pm-practice-management 如何开始一个新 skill 项目？
+
+# 校准目标、依据与边界
+/cognitive-lead 帮我判断这个产品方向是否值得做
 ```
 
 ---
@@ -154,6 +170,7 @@ cp -r skills/pm-practice-management ~/.claude/skills/pm-practice-management
 | 管理 AI agent 开发项目 | pm-practice-management | 从需求到验收的完整流程 |
 | 团队统一输出标准 | ai-quality-checker + 校准会议 | 消除评分差异，统一质量标准 |
 | 向高管汇报分析结论 | deep-analysis-report | 先判断后数据，读者一眼看到核心结论 |
+| 任务目标和证据还不清楚 | cognitive-lead | 先核实材料、明确反例和可观察的验收标准 |
 
 ---
 
@@ -184,9 +201,14 @@ pm-expert-skills/
 │   │   ├── SKILL.md
 │   │   └── references/                # 门禁详解、写作规范、团队校准等
 │   │
-│   └── pm-practice-management/       # PM 实战管理方法论
+│   ├── pm-practice-management/       # PM 实战管理方法论
+│   │   ├── SKILL.md
+│   │   └── references/                # 模板和示例
+│   │
+│   └── cognitive-lead/               # 认知校准与决策记录
 │       ├── SKILL.md
-│       └── references/                # 模板和示例
+│       ├── references/
+│       └── scripts/                  # 决策日志与校准分工具
 │
 └── docs/                              # 通用文档
     └── acceptance-standard-template.md # 验收标准填空模板
